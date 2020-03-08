@@ -11,6 +11,7 @@ struct SimpleApp {
     r: sync::Arc<sync::Mutex<Report>>,
 }
 
+#[derive(Debug)]
 struct Report {
     a: u32,
     b: u64,
@@ -31,8 +32,8 @@ impl SimpleApp {
 }
 
 impl Reporter for SimpleApp {
-    fn report(&self) -> &str {
-        "My report"
+    fn report(&self) -> String {
+        format!("My report {:?}", *self.r.lock().unwrap())
     }
 }
 

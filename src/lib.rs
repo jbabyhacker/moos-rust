@@ -6,7 +6,7 @@ use std::sync::{Arc, Mutex};
 use std::{mem, path, sync, thread};
 
 pub trait Reporter {
-    fn report(&self) -> &str;
+    fn report(&self) -> String;
 }
 
 pub trait Communicator {
